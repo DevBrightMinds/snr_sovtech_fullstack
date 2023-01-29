@@ -64,11 +64,11 @@ const DetailsScreen: React.FC<{}> = (): JSX.Element => {
                 width: "50%",
                 display: "flex",
                 justifyContent: "space-between",
-                padding: "20px 0 0 0"
+                padding: "20px 0 0 0",
             }}>
                 <div className="alias" style={{
                     display: DisplayAlias && SelectedCharacter.alias.length > 0 ? "grid" : "none",
-                    padding: "10px 0 0 0"
+                    padding: "10px 0 0 0",
                 }}>
                     <ItemsList List={SelectedCharacter.alias} Label={"Alias"} />
                 </div>
@@ -82,7 +82,7 @@ const DetailsScreen: React.FC<{}> = (): JSX.Element => {
             <div className="image-view" style={{ display: DisplayImage ? "grid" : "none", margin: "20px 0 0 0" }}>
                 <label style={CardStyle.listLabel}>Image</label>
                 {SelectedCharacter.img_url ?
-                    <img src={SelectedCharacter.img_url} alt="character image" />
+                    <img src={SelectedCharacter.img_url} alt="character image" style={{ borderRadius: 10 }} />
                     : ""
                 }
             </div>
