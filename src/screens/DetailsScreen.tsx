@@ -84,7 +84,7 @@ const DetailsScreen: React.FC<{}> = (): JSX.Element => {
                 </div>
             </div>
             <div className="image-view" style={{ display: DisplayImage ? "grid" : "none", margin: "20px 0 0 0", width: "30%" }}>
-                <label style={CardStyle.listLabel}>Image</label>
+                <label style={CardStyle.listLabel}>Image:</label>
                 {SelectedCharacter.img_url ?
                     <img src={SelectedCharacter.img_url} alt="character image" style={{ borderRadius: 10, boxShadow: "2px 2px 2px #aaaaaa" }} />
                     : ""
