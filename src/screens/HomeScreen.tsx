@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { MainServices } from "../utils/Services";
@@ -70,15 +70,19 @@ const App: React.FC<{}> = (): JSX.Element => {
         }
     }
 
-    const getSelectedRow = (character: Character) => {
+    const getSelectedRow = useCallback((character: Character) => {
         dispatch(selectedCharacter(character));
         navigate("/details");
 
+    }, [CurrentPage])
+
+    const setRequiredCharacters = () => {
+        return Characters.slice(IndexOfFirstCharacter, IndexOfLastCharacter);
     }
 
     const IndexOfLastCharacter = CurrentPage * CharactersPerPage;
     const IndexOfFirstCharacter = IndexOfLastCharacter - CharactersPerPage;
-    const CharactersRequired = Characters.slice(IndexOfFirstCharacter, IndexOfLastCharacter);
+    const CharactersRequired = useMemo(() => setRequiredCharacters(), [CurrentPage, Characters]);
 
     const toggleItems = useCallback((type: string) => {
         let newPosition: number;

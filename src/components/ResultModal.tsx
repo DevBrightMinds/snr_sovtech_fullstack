@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 
 const ResultModal: React.FC<{
     closeModal: any,
@@ -41,4 +41,4 @@ const ResultModal: React.FC<{
         </>
     }
 
-export default ResultModal;
+export default memo(ResultModal);

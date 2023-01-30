@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const Pagination: React.FC<{
     CharsPosition: number,
@@ -18,4 +18,4 @@ const Pagination: React.FC<{
         </>
     }
 
-export default Pagination;
+export default memo(Pagination);

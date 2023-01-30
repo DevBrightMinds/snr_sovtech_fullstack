@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 
 import { CardStyle } from "../utils/styles/CardStyle";
 
@@ -12,4 +12,4 @@ const ItemsList: React.FC<{ List: any[], Label: string }> = ({ List, Label }): J
         </select>
     </>
 }
-export default ItemsList;
+export default memo(ItemsList);
