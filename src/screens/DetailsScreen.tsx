@@ -12,9 +12,9 @@ import { CardStyle } from "../utils/styles/CardStyle";
 const DetailsScreen: React.FC<{}> = (): JSX.Element => {
     const SelectedCharacter: Character = useSelector((state: any) => state.SelectedCharacter);
 
-    const [DisplayImage, setDisplayImage] = useState<boolean>(false);
-    const [DisplayAlias, setDisplayAlias] = useState<boolean>(false);
-    const [DisplayAbilities, setDisplayAbilities] = useState<boolean>(false);
+    const [DisplayImage, setDisplayImage] = useState(false);
+    const [DisplayAlias, setDisplayAlias] = useState(false);
+    const [DisplayAbilities, setDisplayAbilities] = useState(false);
 
     const toggleItem = (type: string) => {
         switch (type) {
@@ -38,15 +38,19 @@ const DetailsScreen: React.FC<{}> = (): JSX.Element => {
                 <div className="details-container" style={{
                     margin: "2% 0 0 0",
                     backgroundColor: "whitesmoke",
-                    padding: 10,
                     width: "40%",
                     boxShadow: "2px 2px 2px #aaaaaa",
                     borderRadius: 10
                 }}>
-                    <div className="details-header">
+                    <div className="details-header" style={{
+                        backgroundColor: "#333333",
+                        color: "#ffffff",
+                        padding: "10px",
+                        borderRadius: "10px 10px 0px 0px"
+                    }}>
                         <h4>{SelectedCharacter.name}</h4>
                     </div>
-                    <div className="details-body">
+                    <div className="details-body" style={{ padding: 10 }}>
                         <p><span style={CardStyle.bodySpan}>Status</span>: {SelectedCharacter.status}</p>
                         <p><span style={CardStyle.bodySpan}>Species</span>: {SelectedCharacter.species}</p>
                         <p><span style={CardStyle.bodySpan}>Gender</span>: {SelectedCharacter.gender}</p>
@@ -79,10 +83,10 @@ const DetailsScreen: React.FC<{}> = (): JSX.Element => {
                     <ItemsList List={SelectedCharacter.abilities} Label={"Abilities"} />
                 </div>
             </div>
-            <div className="image-view" style={{ display: DisplayImage ? "grid" : "none", margin: "20px 0 0 0" }}>
+            <div className="image-view" style={{ display: DisplayImage ? "grid" : "none", margin: "20px 0 0 0", width: "30%" }}>
                 <label style={CardStyle.listLabel}>Image</label>
                 {SelectedCharacter.img_url ?
-                    <img src={SelectedCharacter.img_url} alt="character image" style={{ borderRadius: 10 }} />
+                    <img src={SelectedCharacter.img_url} alt="character image" style={{ borderRadius: 10, boxShadow: "2px 2px 2px #aaaaaa" }} />
                     : ""
                 }
             </div>

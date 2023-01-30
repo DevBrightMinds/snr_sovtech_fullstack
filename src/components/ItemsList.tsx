@@ -6,7 +6,7 @@ const ItemsList: React.FC<{ List: any[], Label: string }> = ({ List, Label }): J
     return <>
         <label style={CardStyle.listLabel}>{Label}:</label>
         <select name="alias" id="alias" multiple>
-            {List.map((item: string, index: number) => {
+            {List?.map((item: string, index: number) => {
                 return <option key={index} value={item}>{item}</option>
             })}
         </select>

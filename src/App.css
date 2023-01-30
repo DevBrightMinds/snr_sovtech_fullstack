@@ -21,6 +21,10 @@ header .app-nav a {
     text-decoration: none;
 }
 
+header .app-nav a:hover {
+    color: red;
+}
+
 header .nav-mobile {
     display: none;
 }

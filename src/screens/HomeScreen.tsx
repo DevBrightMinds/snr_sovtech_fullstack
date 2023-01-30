@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { MainServices } from "../utils/Services";
 
+import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import TableView from "../components/TableView";
 import ResultModal from "../components/ResultModal";
@@ -14,7 +15,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 import Character from "../utils/interfaces/Character";
-import Footer from "../components/Footer";
 
 const App: React.FC<{}> = (): JSX.Element => {
     const isMounted = useRef(false);
@@ -26,11 +26,11 @@ const App: React.FC<{}> = (): JSX.Element => {
     const CharactersPerPage: number = 10;
     const SelectedPageIndex: number = useSelector((state: any) => state.SelectedPagePosition);
 
-    const [Feedback, setFeedback] = useState<string>("");
-    const [FeedbackHeading, setFeedbackHeading] = useState<string>("");
+    const [Feedback, setFeedback] = useState("");
+    const [FeedbackHeading, setFeedbackHeading] = useState("");
 
-    const [Status, setStatus] = useState<boolean>(false);
-    const [Loading, setLoading] = useState<boolean>(true);
+    const [Status, setStatus] = useState(false);
+    const [Loading, setLoading] = useState(true);
 
     const [Characters, setCharacters] = useState<any[]>([]);
 
